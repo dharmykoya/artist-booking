@@ -42,3 +42,8 @@ NameError: name 'ArtistForm' is not defined
 2019-10-07 18:40:01,675 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:498]
 2019-10-08 01:26:46,255 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:511]
 2019-10-08 01:27:12,640 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:511]
+2019-10-08 19:05:13,523 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
+2019-10-08 19:06:18,454 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
+2019-10-08 19:06:52,790 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
+2019-10-08 19:07:04,908 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
+2019-10-08 19:08:43,812 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
