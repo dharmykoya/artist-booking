@@ -1,6 +1,7 @@
 import inspect
 import sys
 from flask_sqlalchemy import SQLAlchemy
+import datetime
 
 db = SQLAlchemy()
 
@@ -30,7 +31,7 @@ class Venue(db.Model):
     )
 
     def __repr__(self):
-        return f'<Venue {self.id} {self.name} {self.state}>'
+        return f'<Venue {self.id} {self.name} {self.state} {self.image_link}>'
 
     @property
     def serialize_with_upcoming_shows_count(self):
@@ -52,6 +53,13 @@ class Venue(db.Model):
             'venues': [venue.serialize_with_upcoming_shows_count
                        for venue in Venue.query.filter(Venue.state == self.state).all()]
         }
+
+    @property
+    def venue_details(self):
+        return {'id': self.id,
+                'name': self.name,
+                'num_upcoming_shows': len(Show.query.all())
+                }
 
 
 class Artist(db.Model):
@@ -79,8 +87,26 @@ class Artist(db.Model):
                 'phone': self.phone,
                 'genres': self.genres,
                 'image_link': self.image_link,
+                'facebook_link': self.facebook_link, }
+
+    @property
+    def view_artist(self):
+        return {'id': self.id,
+                'name': self.name,
+                'city': self.city,
+                'state': self.state,
+                'phone': self.phone,
+                'genres': self.genres,
+                'image_link': self.image_link,
                 'facebook_link': self.facebook_link,
+                'upcoming_shows_count': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()),
+                'upcoming_shows': [show.shows_for_artist for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()],
+                'past_shows_count': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()),
+                'past_shows': [show.shows_for_artist for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()]
                 }
+# 'upcoming_shows': [show.serialize_with_artist_venue for show in Shows.query.filter(
+#                     Shows.start_time > datetime.datetime.now(),
+#                     Shows.artist_id == self.id).all()],
 
 
 class Show(db.Model):
@@ -108,7 +134,7 @@ class Show(db.Model):
                 'artist': self.artist,
                 'venue_id': self.venue_id,
                 'artist_id': self.artist_id,
-                'start_time': self.start_time,
+                'start_time': self.start_time.strftime("%m/%d/%Y, %H:%M:%S"),
                 }
 
     @property
@@ -118,6 +144,15 @@ class Show(db.Model):
             'venue_id': self.venue_id,
             'venue_name': self.venue.name,
             'artist_id': self.artist_id,
-            'start_time': self.start_time,
-            'artist_image_link': 'https://images.unsplash.com/photo-1558369981-f9ca78462e61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=794&q=80'
+            'start_time': self.start_time.strftime("%m/%d/%Y, %H:%M:%S"),
+            'artist_image_link': self.artist.image_link
+        }
+
+    @property
+    def shows_for_artist(self):
+        return {
+            'venue_id': self.venue_id,
+            'venue_name': self.venue.name,
+            'start_time': self.start_time.strftime("%m/%d/%Y, %H:%M:%S"),
+            'venue_image_link': self.venue.image_link
         }

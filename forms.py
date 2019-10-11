@@ -116,6 +116,9 @@ class VenueForm(Form):
     website = StringField(
         'website', validators=[URL()]
     )
+    image_link = StringField(
+        'image_link'
+    )
     facebook_link = StringField(
         'facebook_link', validators=[URL()]
     )

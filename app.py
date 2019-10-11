@@ -55,7 +55,7 @@ def format_datetime(value, format='medium'):
       format="EE MM, dd, y h:mma"
   return babel.dates.format_datetime(date, format)
 
-  app.jinja_env.filters['datetime'] = format_datetime
+app.jinja_env.filters['datetime'] = format_datetime
 
 #----------------------------------------------------------------------------#
 # Controllers.
@@ -84,14 +84,22 @@ def search_venues():
   # TODO: implement search on artists with partial string search. Ensure it is case-insensitive.
   # seach for Hop should return "The Musical Hop".
   # search for "Music" should return "The Musical Hop" and "Park Square Live Music & Coffee"
-  response={
-    "count": 1,
-    "data": [{
-      "id": 2,
-      "name": "The Dueling Pianos Bar",
-      "num_upcoming_shows": 0,
-    }]
+  # response={
+  #   "count": 1,
+  #   "data": [{
+  #     "id": 2,
+  #     "name": "The Dueling Pianos Bar",
+  #     "num_upcoming_shows": 0,
+  #   }]
+  # }
+  search_data = request.form.get('search_term', '')
+  venue_results = Venue.query.filter(Venue.name.ilike('%' + search_data + '%')).all()
+  number_of_venue = len(venue_results)
+  response = {
+    "count": number_of_venue,
+    "data": [venue.venue_details for venue in venue_results]
   }
+  print(54, response)
   return render_template('pages/search_venues.html', results=response, search_term=request.form.get('search_term', ''))
 
 @app.route('/venues/<int:venue_id>')
@@ -177,6 +185,7 @@ def show_venue(venue_id):
   }
   # data = list(filter(lambda d: d['id'] == venue_id, [data1, data2, data3]))[0]
   data = Venue.query.get(venue_id)
+  print(123, data)
   return render_template('pages/show_venue.html', venue=data)
 
 #  Create Venue
@@ -203,7 +212,7 @@ def create_venue_submission():
     genres = form.genres.data
     website = request.form.get('website', '')
     facebook_link = request.form.get('facebook_link', '')
-
+    print(888, image_link)
     venue = Venue(name=name, city=city, state=state, address=address, phone=phone, genres=genres, website=website, image_link=image_link, facebook_link=facebook_link)
     db.session.add(venue)
     db.session.commit()
@@ -260,7 +269,13 @@ def search_artists():
   #     "num_upcoming_shows": 0,
   #   }]
   # }
- 
+  search_data = request.form.get('search_term', '')
+  artist_results = Artist.query.filter(Artist.name.ilike('%' + search_data + '%')).all()
+  number_of_artist = len(artist_results)
+  response = {
+    "count": number_of_artist,
+    "data": [artist.artist_details for artist in artist_results]
+  }
   return render_template('pages/search_artists.html', results=response, search_term=request.form.get('search_term', ''))
 
 @app.route('/artists/<int:artist_id>')
@@ -339,7 +354,8 @@ def show_artist(artist_id):
     "upcoming_shows_count": 3,
   }
   # data = list(filter(lambda d: d['id'] == artist_id, [data1, data2, data3]))[0]
-  data = Artist.query.get(artist_id)
+  data = Artist.query.get(artist_id).view_artist
+  print(4, data)
   return render_template('pages/show_artist.html', artist=data)
 
 #  Update
@@ -416,8 +432,12 @@ def create_artist_submission():
     city = request.form.get('city', '')
     state = request.form.get('state', '')
     phone = request.form.get('phone', '')
+    image_link = form.image_link.data
+    facebook_link = form.facebook_link.data
     genres = form.genres.data
-    artist = Artist(name=name, city=city, state=state, phone=phone, genres=genres)
+    print(12, image_link)
+    print(14, facebook_link)
+    artist = Artist(name=name, city=city, state=state, phone=phone, genres=genres, image_link=image_link, facebook_link=facebook_link)
     db.session.add(artist)
     db.session.commit()
     
