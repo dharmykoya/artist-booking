@@ -55,10 +55,30 @@ class Venue(db.Model):
         }
 
     @property
-    def venue_details(self):
+    def venue_search_details(self):
         return {'id': self.id,
                 'name': self.name,
-                'num_upcoming_shows': len(Show.query.all())
+                'num_upcoming_shows': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all())
+                }
+
+    @property
+    def view_venue(self):
+        return {'id': self.id,
+                'name': self.name,
+                'city': self.city,
+                'state': self.state,
+                'phone': self.phone,
+                'address': self.address,
+                'website': self.website,
+                'genres': self.genres,
+                'image_link': self.image_link,
+                'facebook_link': self.facebook_link,
+                'seeking_talent': self.seeking_talent,
+                'seeking_description': self.seeking_description,
+                'upcoming_shows_count': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()),
+                'upcoming_shows': [show.show_details_for_venue for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()],
+                'past_shows_count': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()),
+                'past_shows': [show.show_details_for_venue for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()]
                 }
 
 
@@ -100,13 +120,10 @@ class Artist(db.Model):
                 'image_link': self.image_link,
                 'facebook_link': self.facebook_link,
                 'upcoming_shows_count': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()),
-                'upcoming_shows': [show.shows_for_artist for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()],
+                'upcoming_shows': [show.show_details_for_artist for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time > datetime.datetime.now(),).all()],
                 'past_shows_count': len(Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()),
-                'past_shows': [show.shows_for_artist for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()]
+                'past_shows': [show.show_details_for_artist for show in Show.query.filter(Show.artist_id == self.id,  Show.start_time < datetime.datetime.now(),).all()]
                 }
-# 'upcoming_shows': [show.serialize_with_artist_venue for show in Shows.query.filter(
-#                     Shows.start_time > datetime.datetime.now(),
-#                     Shows.artist_id == self.id).all()],
 
 
 class Show(db.Model):
@@ -128,16 +145,6 @@ class Show(db.Model):
         return f'<Show {self.id} {self.venue} {self.artist}>'
 
     @property
-    def show_details(self):
-        return {'id': self.id,
-                'venue': self.venue,
-                'artist': self.artist,
-                'venue_id': self.venue_id,
-                'artist_id': self.artist_id,
-                'start_time': self.start_time.strftime("%m/%d/%Y, %H:%M:%S"),
-                }
-
-    @property
     def show_details_list(self):
         return {
             'artist_name': self.artist.name,
@@ -149,10 +156,19 @@ class Show(db.Model):
         }
 
     @property
-    def shows_for_artist(self):
+    def show_details_for_artist(self):
         return {
             'venue_id': self.venue_id,
             'venue_name': self.venue.name,
             'start_time': self.start_time.strftime("%m/%d/%Y, %H:%M:%S"),
             'venue_image_link': self.venue.image_link
+        }
+
+    @property
+    def show_details_for_venue(self):
+        return {
+            'artist_id': self.artist_id,
+            'artist_name': self.artist.name,
+            'start_time': self.start_time.strftime("%m/%d/%Y, %H:%M:%S"),
+            'artist_image_link': self.artist.image_link
         }

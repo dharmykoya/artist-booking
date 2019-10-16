@@ -47,3 +47,542 @@ NameError: name 'ArtistForm' is not defined
 2019-10-08 19:06:52,790 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
 2019-10-08 19:07:04,908 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
 2019-10-08 19:08:43,812 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:514]
+2019-10-11 13:46:46,402 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:551]
+2019-10-11 13:47:02,024 ERROR: Exception on /artists [GET] [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "fyyur" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py", line 260, in artists
+    data = Artist.query.all()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3178, in all
+    return list(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3356, in _execute_and_instances
+    querycontext, self._connection_from_session, close_with_result=True
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3371, in _get_bind_args
+    mapper=self._bind_mapper(), clause=querycontext.statement, **kw
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3349, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1124, in connection
+    execution_options=execution_options,
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1130, in _connection_for_bind
+    engine, execution_options
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 431, in _connection_for_bind
+    conn = bind._contextual_connect()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2239, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2279, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1544, in _handle_dbapi_exception_noconnection
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  database "fyyur" does not exist
+
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-10-11 13:47:06,958 ERROR: Exception on /shows [GET] [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "fyyur" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py", line 507, in shows
+    shows = Show.query.all()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3178, in all
+    return list(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3356, in _execute_and_instances
+    querycontext, self._connection_from_session, close_with_result=True
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3371, in _get_bind_args
+    mapper=self._bind_mapper(), clause=querycontext.statement, **kw
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3349, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1124, in connection
+    execution_options=execution_options,
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1130, in _connection_for_bind
+    engine, execution_options
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 431, in _connection_for_bind
+    conn = bind._contextual_connect()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2239, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2279, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1544, in _handle_dbapi_exception_noconnection
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  database "fyyur" does not exist
+
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-10-11 13:48:09,844 ERROR: Exception on /artists [GET] [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "fyyur" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py", line 260, in artists
+    def search_artists():
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3178, in all
+    return list(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3356, in _execute_and_instances
+    querycontext, self._connection_from_session, close_with_result=True
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3371, in _get_bind_args
+    mapper=self._bind_mapper(), clause=querycontext.statement, **kw
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3349, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1124, in connection
+    execution_options=execution_options,
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1130, in _connection_for_bind
+    engine, execution_options
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 431, in _connection_for_bind
+    conn = bind._contextual_connect()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2239, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2279, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1544, in _handle_dbapi_exception_noconnection
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  database "fyyur" does not exist
+
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-10-11 13:49:01,539 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:548]
+2019-10-11 13:49:06,592 ERROR: Exception on /venues [GET] [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "fyyur" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py", line 76, in venues
+    venues = Venue.query.distinct(Venue.state).all()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3178, in all
+    return list(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3356, in _execute_and_instances
+    querycontext, self._connection_from_session, close_with_result=True
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3371, in _get_bind_args
+    mapper=self._bind_mapper(), clause=querycontext.statement, **kw
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3349, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1124, in connection
+    execution_options=execution_options,
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1130, in _connection_for_bind
+    engine, execution_options
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 431, in _connection_for_bind
+    conn = bind._contextual_connect()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2239, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2279, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1544, in _handle_dbapi_exception_noconnection
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  database "fyyur" does not exist
+
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-10-11 13:49:16,312 ERROR: Exception on /artists [GET] [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: FATAL:  database "fyyur" does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py", line 257, in artists
+    data = Artist.query.all()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3178, in all
+    return list(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3356, in _execute_and_instances
+    querycontext, self._connection_from_session, close_with_result=True
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3371, in _get_bind_args
+    mapper=self._bind_mapper(), clause=querycontext.statement, **kw
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/query.py", line 3349, in _connection_from_session
+    conn = self.session.connection(**kw)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1124, in connection
+    execution_options=execution_options,
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1130, in _connection_for_bind
+    engine, execution_options
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 431, in _connection_for_bind
+    conn = bind._contextual_connect()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2239, in _contextual_connect
+    self._wrap_pool_connect(self.pool.connect, None),
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2279, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 1544, in _handle_dbapi_exception_noconnection
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+    raise value.with_traceback(tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/base.py", line 2275, in _wrap_pool_connect
+    return fn()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 363, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 760, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 492, in checkout
+    rec = pool._do_get()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 139, in _do_get
+    self._dec_overflow()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/impl.py", line 136, in _do_get
+    return self._create_connection()
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 308, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 437, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/pool/base.py", line 639, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/sqlalchemy/engine/default.py", line 453, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/dharmy-ko/Desktop/projects/udacity/artist_bookings/env/lib/python3.6/site-packages/psycopg2/__init__.py", line 126, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) FATAL:  database "fyyur" does not exist
+
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-10-11 13:55:14,690 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:548]
+2019-10-11 13:55:25,100 INFO: errors [in /home/dharmy-ko/Desktop/projects/udacity/artist_bookings/starter_code/app.py:548]
